@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Bootstrap</title>
+    
+    <style>
+        .progress {
+            height: 55px; 
+        }
+
+        .progress-bar {
+            background-color: #007bff;
+            line-height: 30px;
+        }
+        
+        .btn {
+            margin-right: 50px;
+            margin-left: 50px;
+            background-color: red;
+            height: 40px;
+            width: 250px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Progress Bar + Buttons with Event Listener</h1>
+        <div class="progress">
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+        </div>
+        <button id="btn1" class="btn btn-primary mt-3">Item 1</button>
+        <button id="btn2" class="btn btn-primary mt-3">Item 2</button>
+        <button id="btn3" class="btn btn-primary mt-3">Item 3</button>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progress-bar');
+        
+        document.getElementById('btn1').addEventListener('click', function() {
+            updateProgressBar(33);
+        });
+
+        document.getElementById('btn2').addEventListener('click', function() {
+            updateProgressBar(66);
+        });
+
+        document.getElementById('btn3').addEventListener('click', function() {
+            updateProgressBar(100);
+        });
+
+        function updateProgressBar(width) {
+            progressBar.style.width = width + '%';
+            progressBar.textContent = width + '%';
+            progressBar.setAttribute('aria-valuenow', width);
+        }
+    </script>
+
+</body>
+</html>
